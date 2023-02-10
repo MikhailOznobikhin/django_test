@@ -3,10 +3,10 @@ from django.db import models
 
 """ Model for posts """
 class Post(models.Model):
-    post_header = models.CharField('название поста', max_length=100)
-    post_text = models.TextField('текст поста')
-    post_view = models.IntegerField('количество просмотров')
-    post_create_date = models.DateTimeField('дата создания поста')
+    header = models.CharField('название поста', max_length=100)
+    text = models.TextField('текст поста')
+    view = models.IntegerField('количество просмотров')
+    create_date = models.DateTimeField('дата создания поста')
 
     """ To display in Russian posts in the admin panel """
     # TODO Доделать падежи
@@ -17,8 +17,8 @@ class Post(models.Model):
 """ Model for comments """
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    comment_text = models.CharField('текст комментария', max_length=300)
-    comment_create_date = models.DateTimeField('дата создания коммента')
+    text = models.CharField('текст комментария', max_length=300)
+    create_date = models.DateTimeField('дата создания коммента')
 
     """ To display in Russian comments in the admin panel """
     # TODO Доделать падежи
